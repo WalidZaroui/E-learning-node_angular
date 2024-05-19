@@ -10,6 +10,8 @@ const mongoose = require('mongoose');
 const auth = require('./middleware/auth');
 const cors = require('cors');
 
+
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -48,10 +50,12 @@ app.get('/files/:name', function (req, res, next) {
 
 mongoose
     .connect(
-        'mongodb+srv://walid:walid@cluster0.wzyzi5x.mongodb.net/youlearn', {useUnifiedTopology: true ,  useNewUrlParser: true }
-    )
+        'mongodb+srv://walid:walid@cluster0.wzyzi5x.mongodb.net/youlearn')
     .then(result => {
         app.listen(8080);
         console.log("Running !")
+       
     })
     .catch(err => console.log(err));
+
+    
